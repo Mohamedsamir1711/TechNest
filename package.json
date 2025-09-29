@@ -1,0 +1,25 @@
+{
+  "name": "technest",
+  "version": "1.0.0",
+  "description": "electronics e-commerce",
+  "license": "MIT",
+  "author": "mohamed samir",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "server": "nodemon server"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "concurrently": "^9.2.1",
+    "config": "^4.1.1",
+    "express": "^5.1.0",
+    "express-validator": "^7.2.1",
+    "gravatar": "^1.8.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.18.2",
+    "nodemon": "^3.1.10",
+    "request": "^2.88.2"
+  }
+}
