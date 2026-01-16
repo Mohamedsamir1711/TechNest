@@ -8,9 +8,12 @@
   "main": "server.js",
   "scripts": {
     "start": "node server",
-    "server": "nodemon server"
+    "server": "nodemon server",
+    "client": "npm start --prefix client ",
+    "dev": "concurrently \"npm run server\" \"npm run client\" "
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.11.2",
     "bcryptjs": "^3.0.2",
     "concurrently": "^9.2.1",
     "config": "^4.1.1",
@@ -18,8 +21,13 @@
     "express-validator": "^7.2.1",
     "gravatar": "^1.8.2",
     "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.20.0",
     "mongoose": "^8.18.2",
     "nodemon": "^3.1.10",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "baseline-browser-mapping": "^2.9.14"
   }
 }
