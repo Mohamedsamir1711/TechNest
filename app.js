@@ -23,7 +23,9 @@ app.use(morgan('dev'));
 app.use(expressSan());
 app.use(limiter);
 app.use(helmet());
+
 app.use(cors({origin: 'http://localhost:4200'}));
+app.use(cors({ origin: 'https://Mohamedsamir1711.github.io' })); 
 
 app.get('/', (req, res) => {
     res.status(200).json({
