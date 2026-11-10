@@ -9,8 +9,7 @@ const Experience = ({ experience, deleteExperience }) => {
             <td>{exp.company}</td>
             <td>{exp.title}</td>
             <td>
-                {exp.from ? new Date(exp.from).toLocaleDateString() : 'N/A'} - {' '}
-                {!exp.to || exp.current ? 'Now' : new Date(exp.to).toLocaleDateString()}
+                {new Date(exp.from).toLocaleDateString()} - {exp.to === null ? 'Now' : new Date(exp.to).toLocaleDateString()}
             </td>
             <td>
                 <button className="btn btn-danger" onClick={() => deleteExperience(exp._id)}>Delete</button>

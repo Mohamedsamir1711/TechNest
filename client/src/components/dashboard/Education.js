@@ -9,8 +9,7 @@ const Education = ({ education, deleteEducation }) => {
             <td>{edu.school}</td>
             <td>{edu.degree}</td>
             <td>
-                {edu.from ? new Date(edu.from).toLocaleDateString() : 'N/A'} - {' '}
-                {!edu.to || edu.current ? 'Now' : new Date(edu.to).toLocaleDateString()}
+                {new Date(edu.from).toLocaleDateString()} - {edu.to === null ? 'Now' : new Date(edu.to).toLocaleDateString()}
             </td>
             <td>
                 <button className="btn btn-danger" onClick={() => deleteEducation(edu._id)}>Delete</button>
