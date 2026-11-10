@@ -1,0 +1,7 @@
+{
+    "mongoURI": "mongodb+srv://mohamedsamir:Mohamed88888888@technest.5kiugw0.mongodb.net/?appName=Technest",
+    "jwtSecret": "mysecrettoken",
+    "githubClientId": "Ov23lijxNJQG3ZO2gYgn",
+    "githubClientSecret": "f771f3e2f17c19595dc73ab3bd1e77cf562f12c6"
+
+}

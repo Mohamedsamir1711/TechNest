@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 
-const PostSchema = new schema({
+const ProductSchema = new schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'users',
@@ -45,8 +45,13 @@ const PostSchema = new schema({
                 default: Date.now
             }
         } 
-    ],} ,
+    ],
+    date: {
+        type: Date,
+        default: Date.now
+    }
+},
     { timestamps: true }
 );
 
-module.exports = mongoose.model('post', PostSchema);
+module.exports = mongoose.model('product', ProductSchema);

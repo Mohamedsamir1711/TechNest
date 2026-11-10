@@ -25,7 +25,7 @@ const Profileitem = ({profile: {user: {_id, name, avatar}, status, company, loca
     )}
 
 Profileitem.propTypes = {
-
+profile: PropTypes.object.isRequired,
 }
 
 export default Profileitem

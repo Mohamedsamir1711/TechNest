@@ -1,24 +1,22 @@
 import React, {Fragment, useEffect} from 'react';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
+import Footer from './components/layout/Footer';
 import Landing from './components/layout/Landing';
-import Login from './components/auth/Login';
-import Register from './components/auth/Register';
 import Alert from './components/layout/Alert';
+import Routess from './components/routing/Routess';
+import Catalog from './components/shop/Catalog';
+import ProductDetail from './components/shop/ProductDetail';
+import Cart from './components/shop/Cart';
+import Wishlist from './components/shop/Wishlist';
+import AboutUs from './components/shop/AboutUs';
+import './fonts/css/all.css';
 import './App.css';
-import PrivateRoute from './components/routing/PrivateRoute';
 import {Provider} from 'react-redux';
 import store from './store';
 import { loadUser } from './actions/auth';
 import setAuthToken from './utlis/setAuthToken';
-import Dashboard from './components/dashboard/Dashboard';
-import CreateProfile from './components/profile-forms/CreateProfile';
-import AddExperience from './components/profile-forms/AddExperience';
-import AddEducation from './components/profile-forms/AddEducations';
-import EditProfile from './components/profile-forms/EditProfile';
-import Profiles from './components/profiles/Profiles';
-import Profile from './components/profile/Profile';
-import Posts from './components/posts/Posts';
+import { ShopProvider } from './context/ShopContext';
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -31,29 +29,28 @@ const App = () =>  {
 
   return(
   <Provider store={store}>
+    <ShopProvider>
     <Router>
       <Fragment>
        <Navbar />
-     <Routes>
-            <Route path='/' element={<Landing />} />
-     </Routes>
-     <section className="container">
-     <Alert />
-       <Routes>
-       <Route path='/register' element={<Register/>} />
-         <Route  path='/login' element={<Login/>} />
-         <Route path='/profiles' element={<Profiles/>} />
-         <Route path='/profile/:id' element={<Profile/>} />
-         <Route path='/dashboard' element={<PrivateRoute><Dashboard/></PrivateRoute>} />
-         <Route path='/create-profile' element={<PrivateRoute><CreateProfile/></PrivateRoute>} />
-         <Route path='/edit-profile' element={<PrivateRoute><EditProfile/></PrivateRoute>} /><Route path='/edit-profile' element={<PrivateRoute><EditProfile/></PrivateRoute>} />
-         <Route path='/add-experience' element={<PrivateRoute><AddExperience/></PrivateRoute>} />
-         <Route path='/add-education' element={<PrivateRoute><AddEducation/></PrivateRoute>} />
-         <Route path='/posts' element={<PrivateRoute><Posts/></PrivateRoute>} />
-        </Routes>
-     </section>
+       <div className="alert-stack"><Alert /></div>
+       <main className="site-main">
+         <Routes>
+              <Route path='/' element={<Landing />} />
+              <Route path='/catalog' element={<Catalog />} />
+              <Route path='/catalog/:category' element={<Catalog />} />
+              <Route path='/product/:slug' element={<ProductDetail />} />
+              <Route path='/cart' element={<Cart />} />
+              <Route path='/wishlist' element={<Wishlist />} />
+              <Route path='/about' element={<AboutUs />} />
+              <Route path='/profiles' element={<AboutUs />} />
+              <Route path='/*' element={<Routess />} />
+         </Routes>
+       </main>
+       <Footer />
     </Fragment>
     </Router>
+    </ShopProvider>
     </Provider>
   )
 }

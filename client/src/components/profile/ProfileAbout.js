@@ -24,7 +24,7 @@ const ProfileAbout = ({profile:{user:{name}, bio, skills}}) =>
 
 
 ProfileAbout.propTypes = {
-
+profile: PropTypes.object.isRequired
 }
 
 export default ProfileAbout
