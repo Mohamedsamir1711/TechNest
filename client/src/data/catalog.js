@@ -1,4 +1,3 @@
-// Static storefront catalog used by the Home, Category and Product Detail pages.
 const IMG = '/img/shop/';
 
 export const categories = [

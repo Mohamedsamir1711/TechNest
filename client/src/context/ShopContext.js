@@ -12,7 +12,8 @@ const load = (key) => {
 };
 
 export const ShopProvider = ({ children }) => {
-  // cart: [{ id, qty }], wishlist: [id]
+ 
+  
   const [cart, setCart] = useState(() => load('tn_cart'));
   const [wishlist, setWishlist] = useState(() => load('tn_wishlist'));
 
